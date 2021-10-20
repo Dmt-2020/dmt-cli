@@ -30,15 +30,15 @@ function createProject(project) {
             const multiFiles=[
                 `${name}/package.json`
             ]
-            // 用条件循环把模板字符替换到文件去
+            // 用条件循环把模板字符替换到文件去（创建多个项目）
             for (var i = 0; i < multiFiles.length; i++) {
                 // 这里记得 try {} catch {} 哦，以便出错时可以终止掉 Spinner
                 try {
-                    // 等待读取文件
+                    // 读取文件（读入缓存区）
                     const multiFilesContent = await fse.readFile(multiFiles[i], 'utf8')
                     // 等待替换文件，handlebars.compile(原文件内容)(模板字符)
                     const multiFilesResult = await handlebars.compile(multiFilesContent)(multiMeta)
-                    // 等待输出文件
+                    // 等待输出文件  fse.outputFile(文件路径，数据)
                     await fse.outputFile(multiFiles[i], multiFilesResult)
                 } catch (err) {
                     // 如果出错，Spinner 就改变文字信息
@@ -50,7 +50,7 @@ function createProject(project) {
                 }
             }
             // 如果成功，Spinner 就改变文字信息
-            spinner.text = yellow(`项目已创建成功！`)
+            spinner.text = green(`项目已创建成功！`)
             // 终止等待动画并显示 ✔ 标志
             spinner.succeed()
         }
