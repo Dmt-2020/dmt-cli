@@ -18,7 +18,7 @@ program
     .action(function(){
         inquirer.prompt(init).then(answer => {
             if(answer.conf){
-                createProject(answer)
+                createProject(answer)  //拉取操作的配置
             }else{
                 red(`🆘 您已经终止此操作 🆘`)
             }
