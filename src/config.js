@@ -34,9 +34,9 @@ const init = [
                 key:'a',
                 name:'普通通用框架', 
                 // value:'git@github.com:Dmt-2020/vue-template.git', //前台通用框架的git地址
-                value:'github:Dmt-2020/vue-template'  
+                value:'github:Dmt-2020/vue-template#main'  
                 //注意地址的格式，不是从GitHub上直接复制下来的格式，而是：
-                // GitHub - github:owner/name or simply owner/name
+                // GitHub - github:owner/name or simply owner/name[#分支名]
                 // GitLab - gitlab:owner/name
                 // Bitbucket - bitbucket:owner/name
                
@@ -85,7 +85,7 @@ const create = [
                 key:'a',
                 name:'vue基础模板（路由）',
                 // value:'Dmt-2020/vue-template'
-                value:'github:Dmt-2020/vue-template', //git地址
+                value:'github:Dmt-2020/vue-template#main', //git地址
             },
             {
                 key:'b',
